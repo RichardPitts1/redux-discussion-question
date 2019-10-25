@@ -4,10 +4,13 @@ import { useSubscription } from '../subscription'
 import { useDispatch, useSelector } from 'react-redux'
 
 export const DisneyStockChart = () => {
+    const dispatch = useDispatch()
 
-    // ?
+    useSubscription('http://localhost:5001/stock-data', point => {
+        dispatch({ type: 'NEW_DATA', point })
+    })
     
-    const stocks = [] // ?
+    const stocks = useSelector( state => state.stockData )
 
     const chartData = {
         labels: stocks.map( stock => stock.timestamp ),
