@@ -1,10 +1,13 @@
-import { stockReducer, stockState } from "./stockReducer"
-
 export const initialState = {
-    ...stockState
+    stockData: []
 }
 
 export const reducer  = (state, action) => {
-    state = stockReducer(state, action)
+    switch(action.type){
+        case 'YOUR_ACTION_HERE': // ?
+            return {}  // ?
+        break;
+        
+    }
     return state
 }
